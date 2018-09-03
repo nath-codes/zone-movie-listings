@@ -1,4 +1,8 @@
-import { CONFIG_IS_FETCHING, CONFIG_FETCH_SUCCESS } from "./constants";
+import {
+  CONFIG_IS_FETCHING,
+  CONFIG_FETCH_SUCCESS,
+  CONFIG_FETCH_ERROR
+} from "./constants";
 
 const configIsFetching = payload => ({
   payload,
@@ -10,4 +14,9 @@ const configFetchSuccess = payload => ({
   type: CONFIG_FETCH_SUCCESS
 });
 
-export { configIsFetching, configFetchSuccess };
+const configFetchError = payload => ({
+  payload,
+  type: CONFIG_FETCH_ERROR
+});
+
+export { configIsFetching, configFetch, configFetchSuccess, configFetchError };

@@ -1,7 +1,8 @@
 import reducer from "../../reducers/config";
 import {
   CONFIG_IS_FETCHING,
-  CONFIG_FETCH_SUCCESS
+  CONFIG_FETCH_SUCCESS,
+  CONFIG_FETCH_ERROR
 } from "../../actions/constants";
 
 describe("config reducer", () => {
@@ -36,6 +37,19 @@ describe("config reducer", () => {
       config: payload,
       fetching: false,
       error: null
+    };
+    expect(reducer(undefined, action)).toEqual(state);
+  });
+  it("should update state when config is not successfully fetched", () => {
+    const payload = "error";
+    const action = {
+      type: CONFIG_FETCH_ERROR,
+      payload
+    };
+    const state = {
+      config: {},
+      fetching: false,
+      error: payload
     };
     expect(reducer(undefined, action)).toEqual(state);
   });

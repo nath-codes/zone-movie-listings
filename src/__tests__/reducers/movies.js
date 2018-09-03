@@ -1,7 +1,8 @@
 import reducer from "../../reducers/movies";
 import {
   MOVIES_IS_FETCHING,
-  MOVIES_FETCH_SUCCESS
+  MOVIES_FETCH_SUCCESS,
+  MOVIES_FETCH_ERROR
 } from "../../actions/constants";
 
 describe("movies reducer", () => {
@@ -36,6 +37,19 @@ describe("movies reducer", () => {
       movies: payload,
       fetching: false,
       error: null
+    };
+    expect(reducer(undefined, action)).toEqual(state);
+  });
+  it("should update state when movies are not successfully fetched", () => {
+    const payload = "error";
+    const action = {
+      type: MOVIES_FETCH_ERROR,
+      payload
+    };
+    const state = {
+      movies: [],
+      fetching: false,
+      error: payload
     };
     expect(reducer(undefined, action)).toEqual(state);
   });

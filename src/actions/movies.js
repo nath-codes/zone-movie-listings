@@ -1,4 +1,8 @@
-import { MOVIES_IS_FETCHING, MOVIES_FETCH_SUCCESS } from "./constants";
+import {
+  MOVIES_IS_FETCHING,
+  MOVIES_FETCH_SUCCESS,
+  MOVIES_FETCH_ERROR
+} from "./constants";
 
 const moviesIsFetching = payload => ({
   payload,
@@ -10,4 +14,9 @@ const moviesFetchSuccess = payload => ({
   type: MOVIES_FETCH_SUCCESS
 });
 
-export { moviesIsFetching, moviesFetchSuccess };
+const moviesFetchError = payload => ({
+  payload,
+  type: MOVIES_FETCH_ERROR
+});
+
+export { moviesIsFetching, moviesFetch, moviesFetchSuccess, moviesFetchError };
