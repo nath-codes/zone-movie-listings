@@ -10,7 +10,6 @@ import Form from "./components/Form";
 import Genres from "./components/Genres";
 import Range from "./components/Range";
 import Movies from "./components/Movies";
-import Spinner from "./components/Spinner";
 
 import "./styles/global";
 
@@ -50,7 +49,7 @@ class App extends Component {
     } = this.props;
 
     if (!this.isLoaded()) {
-      return <Spinner />;
+      return <div />;
     }
 
     return (
