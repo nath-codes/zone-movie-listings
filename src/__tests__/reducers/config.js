@@ -5,14 +5,15 @@ import {
   CONFIG_FETCH_ERROR
 } from "../../actions/constants";
 
+const initialState = {
+  config: {},
+  fetching: true,
+  error: null
+};
+
 describe("config reducer", () => {
   it("should return initial state", () => {
-    const state = {
-      config: {},
-      fetching: true,
-      error: null
-    };
-    expect(reducer(undefined, {})).toEqual(state);
+    expect(reducer(undefined, {})).toEqual(initialState);
   });
   it("should update state when config are being fetched", () => {
     const payload = false;
@@ -21,9 +22,8 @@ describe("config reducer", () => {
       payload
     };
     const state = {
-      config: {},
-      fetching: payload,
-      error: null
+      ...initialState,
+      fetching: payload
     };
     expect(reducer(undefined, action)).toEqual(state);
   });
@@ -34,9 +34,9 @@ describe("config reducer", () => {
       payload
     };
     const state = {
+      ...initialState,
       config: payload,
-      fetching: false,
-      error: null
+      fetching: false
     };
     expect(reducer(undefined, action)).toEqual(state);
   });
@@ -47,7 +47,7 @@ describe("config reducer", () => {
       payload
     };
     const state = {
-      config: {},
+      ...initialState,
       fetching: false,
       error: payload
     };
