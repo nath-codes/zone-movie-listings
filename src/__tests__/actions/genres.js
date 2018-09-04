@@ -5,12 +5,14 @@ import {
   genresFetch,
   genresIsFetching,
   genresFetchSuccess,
-  genresFetchError
+  genresFetchError,
+  genreToggle
 } from "../../actions/genres";
 import {
   GENRES_IS_FETCHING,
   GENRES_FETCH_SUCCESS,
-  GENRES_FETCH_ERROR
+  GENRES_FETCH_ERROR,
+  GENRE_TOGGLE
 } from "../../actions/constants";
 
 const middlewares = [thunk];
@@ -114,5 +116,13 @@ describe("genres actions", () => {
       payload
     };
     expect(genresFetchError(payload)).toEqual(mockAction);
+  });
+  it("should create an action when toggling a genre checkbox", () => {
+    const payload = 27;
+    const mockAction = {
+      type: GENRE_TOGGLE,
+      payload
+    };
+    expect(genreToggle(payload)).toEqual(mockAction);
   });
 });

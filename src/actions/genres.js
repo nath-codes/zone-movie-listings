@@ -1,7 +1,8 @@
 import {
   GENRES_IS_FETCHING,
   GENRES_FETCH_SUCCESS,
-  GENRES_FETCH_ERROR
+  GENRES_FETCH_ERROR,
+  GENRE_TOGGLE
 } from "./constants";
 import { fetchGenres } from "../services/api";
 
@@ -36,4 +37,15 @@ const genresFetchError = payload => ({
   type: GENRES_FETCH_ERROR
 });
 
-export { genresIsFetching, genresFetch, genresFetchSuccess, genresFetchError };
+const genreToggle = payload => ({
+  payload,
+  type: GENRE_TOGGLE
+});
+
+export {
+  genresIsFetching,
+  genresFetch,
+  genresFetchSuccess,
+  genresFetchError,
+  genreToggle
+};
