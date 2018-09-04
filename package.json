@@ -10,7 +10,8 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "styled-components": "^3.4.5"
   },
   "devDependencies": {
     "moxios": "^0.4.0",
