@@ -35,14 +35,18 @@ const Movies = ({ movies, posterBaseUrl, genres }) => (
         </div>
       </React.Fragment>
     ) : (
-      movies.map(({ id, title, genre_ids, poster_path }) => (
-        <Card
-          key={id}
-          title={title}
-          genres={getGenreTitles(genre_ids, genres)}
-          posterUrl={`${posterBaseUrl}/w342/${poster_path}`}
-        />
-      ))
+      movies.map(
+        ({ id, title, genre_ids, poster_path, vote_average, popularity }) => (
+          <Card
+            key={id}
+            title={title}
+            genres={getGenreTitles(genre_ids, genres)}
+            posterUrl={`${posterBaseUrl}/w342/${poster_path}`}
+            rating={vote_average}
+            popularity={popularity}
+          />
+        )
+      )
     )}
   </StyledMovies>
 );

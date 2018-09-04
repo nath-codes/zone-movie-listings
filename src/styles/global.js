@@ -19,7 +19,7 @@ export default injectGlobal`
     font-family: 'roboto';
     font-size: 16px;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
   }
 
   ul, ol {
