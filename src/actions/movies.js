@@ -1,7 +1,8 @@
 import {
   MOVIES_IS_FETCHING,
   MOVIES_FETCH_SUCCESS,
-  MOVIES_FETCH_ERROR
+  MOVIES_FETCH_ERROR,
+  MOVIES_RATINGS_FILTER_UPDATE
 } from "./constants";
 import { fetchMovies } from "../services/api";
 
@@ -36,4 +37,17 @@ const moviesFetchError = payload => ({
   type: MOVIES_FETCH_ERROR
 });
 
-export { moviesIsFetching, moviesFetch, moviesFetchSuccess, moviesFetchError };
+const moviesRatingFilterUpdate = payload => {
+  return {
+    payload,
+    type: MOVIES_RATINGS_FILTER_UPDATE
+  };
+};
+
+export {
+  moviesIsFetching,
+  moviesFetch,
+  moviesFetchSuccess,
+  moviesFetchError,
+  moviesRatingFilterUpdate
+};

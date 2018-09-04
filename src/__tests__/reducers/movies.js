@@ -5,14 +5,16 @@ import {
   MOVIES_FETCH_ERROR
 } from "../../actions/constants";
 
+const initialState = {
+  ratingsFilter: "3",
+  movies: [],
+  fetching: true,
+  error: null
+};
+
 describe("movies reducer", () => {
   it("should return initial state", () => {
-    const state = {
-      movies: [],
-      fetching: true,
-      error: null
-    };
-    expect(reducer(undefined, {})).toEqual(state);
+    expect(reducer(undefined, {})).toEqual(initialState);
   });
   it("should update state when movies are being fetched", () => {
     const payload = false;
@@ -21,9 +23,8 @@ describe("movies reducer", () => {
       payload
     };
     const state = {
-      movies: [],
-      fetching: payload,
-      error: null
+      ...initialState,
+      fetching: payload
     };
     expect(reducer(undefined, action)).toEqual(state);
   });
@@ -34,9 +35,9 @@ describe("movies reducer", () => {
       payload
     };
     const state = {
+      ...initialState,
       movies: payload,
-      fetching: false,
-      error: null
+      fetching: false
     };
     expect(reducer(undefined, action)).toEqual(state);
   });
@@ -47,9 +48,9 @@ describe("movies reducer", () => {
       payload
     };
     const state = {
-      movies: [],
-      fetching: false,
-      error: payload
+      ...initialState,
+      error: payload,
+      fetching: false
     };
     expect(reducer(undefined, action)).toEqual(state);
   });

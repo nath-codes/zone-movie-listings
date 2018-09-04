@@ -1,10 +1,12 @@
 import {
   MOVIES_IS_FETCHING,
   MOVIES_FETCH_SUCCESS,
-  MOVIES_FETCH_ERROR
+  MOVIES_FETCH_ERROR,
+  MOVIES_RATINGS_FILTER_UPDATE
 } from "../actions/constants";
 
 const initialState = {
+  ratingsFilter: "3",
   movies: [],
   fetching: true,
   error: null
@@ -28,6 +30,11 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         error: payload,
         fetching: false
+      };
+    case MOVIES_RATINGS_FILTER_UPDATE:
+      return {
+        ...state,
+        ratingsFilter: payload
       };
     default:
       return state;

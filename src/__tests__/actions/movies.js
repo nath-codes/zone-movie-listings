@@ -5,12 +5,14 @@ import {
   moviesFetch,
   moviesIsFetching,
   moviesFetchSuccess,
-  moviesFetchError
+  moviesFetchError,
+  moviesRatingFilterUpdate
 } from "../../actions/movies";
 import {
   MOVIES_IS_FETCHING,
   MOVIES_FETCH_SUCCESS,
-  MOVIES_FETCH_ERROR
+  MOVIES_FETCH_ERROR,
+  MOVIES_RATINGS_FILTER_UPDATE
 } from "../../actions/constants";
 
 const middlewares = [thunk];
@@ -114,5 +116,13 @@ describe("movies actions", () => {
       payload
     };
     expect(moviesFetchError(payload)).toEqual(mockAction);
+  });
+  it("should create an action when filtering movie rating", () => {
+    const payload = "error";
+    const mockAction = {
+      type: MOVIES_RATINGS_FILTER_UPDATE,
+      payload
+    };
+    expect(moviesRatingFilterUpdate(payload)).toEqual(mockAction);
   });
 });
