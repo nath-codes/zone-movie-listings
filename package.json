@@ -1,5 +1,6 @@
 {
   "name": "zone-movie-listings",
+  "homepage": "https://nath-codes.github.io/zone-movie-listings",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
