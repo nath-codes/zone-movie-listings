@@ -1,7 +1,7 @@
 import { injectGlobal } from "styled-components";
 
 export default injectGlobal`
-  @import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
   html {
     box-sizing: border-box;
@@ -15,8 +15,20 @@ export default injectGlobal`
   }
 
   body {
+    color: #333;
     font-family: 'roboto';
     font-size: 16px;
-    color: #333;
+    padding: 0;
+    margin: 0;
   }
+
+  ul, ol {
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style-type: none;
+    }
+  }
+
 `;
