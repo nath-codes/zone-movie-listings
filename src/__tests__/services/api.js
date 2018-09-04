@@ -1,6 +1,8 @@
+import axios from "axios";
 import { fetchMovies, fetchGenres, fetchConfig } from "../../services/api";
-import mockAxios from "../../__mocks__/axios";
 import { moviesApiUrl, genresApiUrl, configApiUrl } from "../../constants/api";
+
+jest.mock("axios");
 
 describe("API service", () => {
   it("should fetch from movies endpoint with correct params", () => {
@@ -10,7 +12,7 @@ describe("API service", () => {
       page: 1
     };
     fetchMovies();
-    expect(mockAxios.get).toBeCalledWith(moviesApiUrl, { params });
+    expect(axios.get).toBeCalledWith(moviesApiUrl, { params });
   });
 
   it("should fetch from genres endpoint with correct params", () => {
@@ -19,7 +21,7 @@ describe("API service", () => {
       language: "en-US"
     };
     fetchGenres();
-    expect(mockAxios.get).toBeCalledWith(genresApiUrl, { params });
+    expect(axios.get).toBeCalledWith(genresApiUrl, { params });
   });
 
   it("should fetch from config endpoint with correct params", () => {
@@ -27,6 +29,6 @@ describe("API service", () => {
       api_key: process.env.REACT_APP_MOVIE_DB_API_KEY
     };
     fetchConfig();
-    expect(mockAxios.get).toBeCalledWith(configApiUrl, { params });
+    expect(axios.get).toBeCalledWith(configApiUrl, { params });
   });
 });
