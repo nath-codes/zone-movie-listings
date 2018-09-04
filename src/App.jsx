@@ -66,6 +66,11 @@ class App extends Component {
               value={ratingsFilter}
               handleChange={this.handleRatingFilterUpdate}
             />
+
+            <div>
+              Rating <b>{ratingsFilter} or more</b>
+            </div>
+
             <Genres
               genres={genres}
               selectedGenres={selectedGenres}
